@@ -1,4 +1,4 @@
-package com.qa.learningspring;
+package com.qa.learningspring.student;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
