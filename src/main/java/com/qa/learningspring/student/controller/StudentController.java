@@ -1,4 +1,4 @@
-package com.qa.learningspring.student;
+package com.qa.learningspring.student.controller;
 
 import com.qa.learningspring.student.entity.Student;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-public class Controller {
+public class StudentController {
 	@GetMapping
 	public List<Student> getStudents() {
 		return List.of(
