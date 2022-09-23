@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Primary
@@ -26,6 +27,10 @@ public class StudentService implements EntityService<Student> {
 	
 	@Override
 	public Student createEntity(Student student) {
+		Optional<Student> opStud = studRepo.findStudentByEmail(student.getEmail());
+		if (opStud.isPresent()) {
+			throw new IllegalStateException("Email taken!");
+		}
 		return this.studRepo.save(student);
 	}
 }

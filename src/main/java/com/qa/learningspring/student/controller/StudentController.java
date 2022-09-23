@@ -24,7 +24,6 @@ public class StudentController {
 	
 	@PostMapping("/create")
 	public Student createStudent(@RequestBody Student student) {
-		Student created = service.createEntity(student);
-		return this.service.createEntity(created);
+		return this.service.createEntity(student);
 	}
 }
