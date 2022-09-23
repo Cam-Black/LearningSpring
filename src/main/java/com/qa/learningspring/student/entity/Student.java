@@ -2,6 +2,7 @@ package com.qa.learningspring.student.entity;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.Period;
 
 @Entity
 public class Student {
@@ -12,25 +13,23 @@ public class Student {
 	
 	private String name;
 	private String email;
+	@Transient
 	private Integer age;
-	@Column(name = "date_of_birth")
 	private LocalDate dob;
 	
 	public Student() {
 	}
 	
-	public Student(Long studentId, String name, String email, LocalDate dob, Integer age) {
+	public Student(Long studentId, String name, String email, LocalDate dob) {
 		this.studentId = studentId;
 		this.name = name;
 		this.email = email;
-		this.age = age;
 		this.dob = dob;
 	}
 	
-	public Student(String name, String email, LocalDate dob, Integer age) {
+	public Student(String name, String email, LocalDate dob) {
 		this.name = name;
 		this.email = email;
-		this.age = age;
 		this.dob = dob;
 	}
 	
@@ -55,7 +54,7 @@ public class Student {
 	}
 	
 	public Integer getAge() {
-		return age;
+		return Period.between(this.getDob(), LocalDate.now()).getYears();
 	}
 	
 	public void setAge(Integer age) {

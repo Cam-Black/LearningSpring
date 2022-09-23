@@ -4,4 +4,6 @@ import java.util.List;
 
 public interface EntityService<T> {
 	List<T> listEntities();
+	
+	T createEntity(T t);
 }
